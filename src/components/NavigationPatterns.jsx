@@ -124,8 +124,8 @@ export default function NavigationPatterns() {
                                 key={tab}
                                 role="tab"
                                 aria-selected={activeTab === idx}
-                                aria-controls={`panel-${idx}`}
-                                id={`tab-${idx}`}
+                                aria-controls={`nav-panel-${idx}`}
+                                id={`nav-tab-${tab.toLowerCase()}`}
                                 tabIndex={activeTab === idx ? 0 : -1}
                                 onClick={() => {
                                     setActiveTab(idx);
@@ -146,8 +146,8 @@ export default function NavigationPatterns() {
                     </div>
                     <div
                         role="tabpanel"
-                        id={`panel-${activeTab}`}
-                        aria-labelledby={`tab-${activeTab}`}
+                        id={`nav-panel-${activeTab}`}
+                        aria-labelledby={`nav-tab-${['account', 'security', 'notifications'][activeTab]}`}
                         style={{ minHeight: '100px' }}
                     >
                         {activeTab === 0 && <p>Account settings content here. <a id="nav-link-edit-profile" href="#" style={{ color: 'hsl(var(--color-accent-primary))' }} onClick={() => trackInteraction('Link', 'Edit Profile')}>Edit Profile</a></p>}
